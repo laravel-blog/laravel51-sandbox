@@ -49,7 +49,7 @@ class BaseController extends Controller
     /**
      * @param UserRepository $oUser
      */
-    protected function _initializeMe(EloquentUserRepository $oUser)
+    protected function _initializeMe(UserRepository $oUser)
     {
         $this->_oMe = \Helper::getMe();
         $this->_oUser = $oUser;
