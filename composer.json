@@ -20,9 +20,6 @@
         }
     ],
     "autoload": {
-        "classmap": [
-            "src/commands"
-        ],
         "psr-4": {
             "Laravelblog\\Sandbox\\": "src/Sandbox/"
         },
