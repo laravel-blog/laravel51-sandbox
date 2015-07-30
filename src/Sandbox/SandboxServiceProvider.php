@@ -9,14 +9,18 @@
 namespace Laravelblog\Sandbox;
 
 use Barryvdh\Debugbar\Facade as DebugbarFacade;
+use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 use Elasticsearch\Client;
 use Illuminate\Support\ServiceProvider;
 use Laravelblog\Sandbox\Lib\Helper;
 use Laravelblog\Sandbox\Lib\Price;
 use Laravelblog\Sandbox\Repositories\UserRepository;
+use Menu\MenuServiceProvider;
 use Zizaco\Entrust\EntrustFacade;
 use Laravelblog\Sandbox\Facades\Helper as HelperFacade;
 use Laravelblog\Sandbox\Facades\Price as PriceFacade;
+use Zizaco\Entrust\EntrustServiceProvider;
+use Barryvdh\Debugbar\ServiceProvider as DebugbarServiceProvider;
 
 
 class SandboxServiceProvider extends ServiceProvider
@@ -35,6 +39,9 @@ class SandboxServiceProvider extends ServiceProvider
         $this->_bindDebugbar();
         $this->_bindHelper();
         $this->_bindPrice();
+        $this->_registerMenu();
+        $this->_registerIdeHeloer();
+
     }
 
     public function boot()
@@ -53,6 +60,7 @@ class SandboxServiceProvider extends ServiceProvider
 
     protected function _bindEntrust()
     {
+        $this->app->register(EntrustServiceProvider::class);
         $this->app->booting(function () {
             $oLoader = \Illuminate\Foundation\AliasLoader::getInstance();
             $oLoader->alias('Entrust', EntrustFacade::class);
@@ -61,6 +69,7 @@ class SandboxServiceProvider extends ServiceProvider
 
     protected function _bindDebugbar()
     {
+        $this->app->register(DebugbarServiceProvider::class)
         $this->app->booting(function () {
             $oLoader = \Illuminate\Foundation\AliasLoader::getInstance();
             $oLoader->alias('Debugbar', DebugbarFacade::class);
@@ -89,6 +98,16 @@ class SandboxServiceProvider extends ServiceProvider
             $oLoader = \Illuminate\Foundation\AliasLoader::getInstance();
             $oLoader->alias('Price', PriceFacade::class);
         });
+    }
+
+    protected function _registerMenu()
+    {
+        $this->app->register(MenuServiceProvider::class);
+    }
+
+    protected function _registerIdeHeloer()
+    {
+        $this->app->register(IdeHelperServiceProvider::class);
     }
 
 }
