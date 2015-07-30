@@ -12,6 +12,7 @@ use Barryvdh\Debugbar\Facade as DebugbarFacade;
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 use Elasticsearch\Client;
 use Illuminate\Support\ServiceProvider;
+use Laracasts\Utilities\JavaScript\JavaScriptServiceProvider;
 use Laravelblog\Sandbox\Lib\Helper;
 use Laravelblog\Sandbox\Lib\Price;
 use Laravelblog\Sandbox\Repositories\UserRepository;
@@ -41,6 +42,7 @@ class SandboxServiceProvider extends ServiceProvider
         $this->_bindPrice();
         $this->_registerMenu();
         $this->_registerIdeHeloer();
+        $this->_registerJavascript();
 
     }
 
@@ -108,6 +110,11 @@ class SandboxServiceProvider extends ServiceProvider
     protected function _registerIdeHeloer()
     {
         $this->app->register(IdeHelperServiceProvider::class);
+    }
+
+    protected function _registerJavascript()
+    {
+        $this->app->register(JavaScriptServiceProvider::class);
     }
 
 }
