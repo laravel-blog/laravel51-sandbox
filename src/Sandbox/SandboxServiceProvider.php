@@ -71,7 +71,7 @@ class SandboxServiceProvider extends ServiceProvider
 
     protected function _bindDebugbar()
     {
-        $this->app->register(DebugbarServiceProvider::class)
+        $this->app->register(DebugbarServiceProvider::class);
         $this->app->booting(function () {
             $oLoader = \Illuminate\Foundation\AliasLoader::getInstance();
             $oLoader->alias('Debugbar', DebugbarFacade::class);
