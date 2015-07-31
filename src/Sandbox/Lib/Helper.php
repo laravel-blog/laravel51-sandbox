@@ -31,10 +31,16 @@ class Helper {
 
     public function allowed($sAction = null,$sRole = null)
     {
-        if(\Entrust::hasRole('admin') || \Entrust::can($sAction) || \Entrust::hasRole($sRole)) {
+        if(static::isAdmin() || \Entrust::hasRole('admin') || \Entrust::can($sAction) || \Entrust::hasRole($sRole)) {
             return true;
         }
         return false;
+    }
+
+    public function isAdmin() {
+        if($oMe = static::getMe()) {
+            return $oMe->isAdmin();
+        }
     }
 
     public function fRound($sVal)

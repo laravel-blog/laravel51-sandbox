@@ -31,4 +31,8 @@ class UserRepository extends Repository
         }
         return auth()->user();
     }
+
+    public function isAdmin() {
+        return ($oMe = static::me() and $oMe->is_admin == true);
+    }
 }
