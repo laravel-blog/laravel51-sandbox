@@ -51,6 +51,10 @@ class SandboxServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/sandbox.php' => config_path('sandbox.php'),
         ]);
+
+        $this->publishes([
+            __DIR__ . '/../migrations/' => database_path('migrations'),
+        ]);
     }
 
     protected function _bindElasticsearchClient()

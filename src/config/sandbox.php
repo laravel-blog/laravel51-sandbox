@@ -6,8 +6,10 @@
  * Project: sandbox
  */
 
+use Laravelblog\Sandbox\User;
+
 return [
-    'user_model' => 'App\\User',
+    'user_model' => User::class,
     'elasticsearch' => [
         'config' => [
             'hosts'     => [env('EL_HOST1', '127.0.0.1:9200')],
