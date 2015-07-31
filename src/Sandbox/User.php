@@ -21,6 +21,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     use Authenticatable, CanResetPassword;
     use EntrustUserTrait;
 
+    protected $casts = [
+        'is_admin' => 'bool'
+    ];
+
     /**
      * The database table used by the model.
      *
