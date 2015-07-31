@@ -7,3 +7,4 @@
 0.0.3.6 - default user model added
 0.0.3.7 - role and permission classes added
 0.0.3.8 - check user is admin
+0.0.3.8.1 - missed isAdmin method added
