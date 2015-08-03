@@ -7,8 +7,8 @@
  */
 
 namespace Laravelblog\Sandbox\Repositories;
+
 use Bosnadev\Repositories\Eloquent\Repository;
-use Laravelblog\Sandbox\User;
 
 class UserRepository extends Repository
 {
