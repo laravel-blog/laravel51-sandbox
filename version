@@ -8,3 +8,4 @@
 0.0.3.7 - role and permission classes added
 0.0.3.8 - check user is admin
 0.0.3.9 - missed isAdmin method added
+0.0.3.10 - site name can now set to controller page
