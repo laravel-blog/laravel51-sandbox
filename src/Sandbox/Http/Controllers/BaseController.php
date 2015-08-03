@@ -26,6 +26,8 @@ class BaseController extends Controller
 
     protected $_aCookies = array();
 
+    protected $_sSiteName = null;
+
     /**
      * @param UserRepository $oUser
      */
@@ -66,6 +68,7 @@ class BaseController extends Controller
             $aData['q'] = \Input::get('q');
             return $aData;
         }
+        $aData['site_name'] = $this->_sSiteName;
         return $aData;
     }
 
