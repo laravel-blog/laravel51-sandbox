@@ -18,3 +18,19 @@ function allowed($sAction = null,$sRole = null) {
 function is_guest() {
     return !\Auth::check();
 }
+
+function has_route($name) {
+    return \Route::has($name);
+}
+
+/**
+ * Generate a relative URL to a named route.
+ *
+ * @param  string  $name
+ * @param  array   $params
+ * @param  \Illuminate\Routing\Route  $route
+ * @return string
+ */
+function relative_route($name, array $params = [], $route = null) {
+    return route($name, $params, false, $route);
+}
