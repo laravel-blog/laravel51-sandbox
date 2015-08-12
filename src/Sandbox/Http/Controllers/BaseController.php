@@ -66,7 +66,6 @@ class BaseController extends Controller
         $aData = array_merge($aData, ['user' => $this->_oUser]);
         if (!isset($aData['q'])) {
             $aData['q'] = \Input::get('q');
-            return $aData;
         }
         $aData['site_name'] = $this->_sSiteName;
         return $aData;
